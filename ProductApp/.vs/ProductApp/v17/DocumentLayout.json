@@ -1,0 +1,146 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\ForkRepo\\ProductApp\\ProductApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|c:\\forkrepo\\productapp\\productapp\\productapp\\migrations\\20240618134434_initialcommit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|solutionrelative:productapp\\migrations\\20240618134434_initialcommit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|c:\\forkrepo\\productapp\\productapp\\productapp\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|solutionrelative:productapp\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|c:\\forkrepo\\productapp\\productapp\\productapp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|solutionrelative:productapp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|c:\\forkrepo\\productapp\\productapp\\productapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|solutionrelative:productapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|c:\\forkrepo\\productapp\\productapp\\productapp\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|solutionrelative:productapp\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|c:\\forkrepo\\productapp\\productapp\\productapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D66E1E81-5125-44DA-805B-49F6B5E41C97}|ProductApp\\ProductApp.csproj|solutionrelative:productapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20240618134434_InitialCommit.cs",
+              "DocumentMoniker": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Migrations\\20240618134434_InitialCommit.cs",
+              "RelativeDocumentMoniker": "ProductApp\\Migrations\\20240618134434_InitialCommit.cs",
+              "ToolTip": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Migrations\\20240618134434_InitialCommit.cs",
+              "RelativeToolTip": "ProductApp\\Migrations\\20240618134434_InitialCommit.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T13:44:34.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "ProductApp\\Models\\Product.cs",
+              "ToolTip": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Models\\Product.cs",
+              "RelativeToolTip": "ProductApp\\Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T13:39:39.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ProductApp\\Models\\User.cs",
+              "ToolTip": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Models\\User.cs",
+              "RelativeToolTip": "ProductApp\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T13:38:41.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "ProductApp\\Data\\DataContext.cs",
+              "ToolTip": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Data\\DataContext.cs",
+              "RelativeToolTip": "ProductApp\\Data\\DataContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T13:38:07.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Program.cs",
+              "RelativeDocumentMoniker": "ProductApp\\Program.cs",
+              "ToolTip": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\Program.cs",
+              "RelativeToolTip": "ProductApp\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T13:30:41.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\appsettings.json",
+              "RelativeDocumentMoniker": "ProductApp\\appsettings.json",
+              "ToolTip": "C:\\ForkRepo\\ProductApp\\ProductApp\\ProductApp\\appsettings.json",
+              "RelativeToolTip": "ProductApp\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-18T13:22:02.51Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
