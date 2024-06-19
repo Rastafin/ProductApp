@@ -31,6 +31,7 @@
         </div>
       </div>
       <button type="submit" class="btn btn-primary" :disabled="hasErrors">Register</button>
+
     </form>
   </div>
 </template>
@@ -54,6 +55,8 @@ export default {
       passwordHash: null
     });
 
+    const serverError = ref('');
+
     const validateUsername = () => {
       errors.username = user.value.username.length >= 5 ? null : 'Username must be at least 5 characters long.';
     };
@@ -75,16 +78,49 @@ export default {
       }
 
       try {
-        await axios.post('https://localhost:7144/api/Auth/register', user.value);
+        await axios.post('https://localhost:7144/api/Auth/register', {
+          username: user.value.username,
+          password: user.value.passwordHash
+        });
         router.push('/login');
       } catch (error) {
-        console.log(error);
+        console.log('Error response:', error.response);
+        if (error.response && error.response.status === 400) {
+          const errorData = error.response.data;
+          console.log('Error data:', errorData);
+          if (Array.isArray(errorData.errors)) {
+
+            errorData.errors.forEach(err => {
+              if (err.toLowerCase().includes('username')) {
+                errors.username = err;
+              } else if (err.toLowerCase().includes('password')) {
+                errors.passwordHash = err;
+              }
+            });
+          } else if (typeof errorData.errors === 'object') {
+
+            Object.keys(errorData.errors).forEach(key => {
+              if (key.toLowerCase() === 'username') {
+                errors.username = errorData.errors[key].join(', ');
+              } else if (key.toLowerCase() === 'password') {
+                errors.passwordHash = errorData.errors[key].join(', ');
+              }
+            });
+          } else if (errorData.message) {
+            serverError.value = errorData.message;
+          } else {
+            serverError.value = 'An error occurred during registration.';
+          }
+        } else {
+          serverError.value = 'An error occurred during registration.';
+        }
       }
     };
 
     return {
       user,
       errors,
+      serverError,
       validateUsername,
       validatePassword,
       hasErrors,

@@ -2,6 +2,7 @@
 using ProductApp.Data;
 using ProductApp.Models;
 using ProductApp.Services.Interfaces;
+using ProductApp.ViewModels;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -43,11 +44,30 @@ namespace ProductApp.Services
             return tokenHandler.WriteToken(token);
         }
 
+        public void Register(RegisterViewModel model)
+        {
+            if (_context.Users.Any(u => u.Username == model.Username))
+            {
+                throw new InvalidOperationException("Username already exists");
+            }
+
+            var user = new User
+            {
+                Username = model.Username,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password)
+            };
+
+            _context.Users.Add(user);
+            _context.SaveChanges();
+        }
+
+        /*
         public void Register(User user)
         {
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
             _context.Users.Add(user);
             _context.SaveChanges();
         }
+        */
     }
 }

@@ -19,9 +19,23 @@ namespace ProductApp.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register([FromBody] User user)
+        public IActionResult Register([FromBody] RegisterViewModel model)
         {
-            _authService.Register(user);
+            if(!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                return BadRequest(new { errors });
+            }
+
+            try
+            {
+                _authService.Register(model);
+            }
+            catch(InvalidOperationException ex)
+            {
+                return BadRequest(new { errors = new List<string> { ex.Message } });
+            }
+
             return Ok();
         }
 

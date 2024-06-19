@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProductApp.Models;
 using ProductApp.Services.Interfaces;
+using ProductApp.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -44,8 +45,22 @@ namespace ProductApp.Controllers
         
         [HttpPost]
         [Authorize]
-        public IActionResult Create([FromBody] Product product)
+        public IActionResult Create([FromBody] ProductViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                return BadRequest(new { errors });
+            }
+
+            var product = new Product
+            {
+                Name = model.Name,
+                Description = model.Description,
+                Price = model.Price,
+                Quantity = model.Quantity
+            };
+
             _productService.AddProduct(product);
             return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }

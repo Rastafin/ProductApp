@@ -65,67 +65,118 @@
 
 <script>
 import axios from 'axios';
-import { reactive} from 'vue';
+import { ref, reactive, computed } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default {
   name: 'AddProduct',
-  data() {
-    return {
-      product: {
-        name: '',
-        description: '',
-        price: 0,
-        quantity: 0
-      },
-      errors: reactive({
-        name: null,
-        description: null,
-        price: null,
-        quantity: null
-      })
-    };
-  },
-  computed: {
-    hasErrors() {
-      return !!this.errors.name || !!this.errors.description || !!this.errors.price || !!this.errors.quantity;
-    }
-  },
-  methods: {
-    validateName() {
-      this.errors.name = this.product.name.length > 0 ? null : 'Name is required.';
-    },
-    validateDescription() {
-      this.errors.description = this.product.description.length > 0 ? null : 'Description is required.';
-    },
-    validatePrice() {
-      this.errors.price = this.product.price > 0 ? null : 'Price must be greater than 0.';
-    },
-    validateQuantity() {
-      this.errors.quantity = Number.isInteger(this.product.quantity) && this.product.quantity > 0 ? null : 'Quantity must be a natural number.';
-    },
-    addProduct() {
-      this.validateName();
-      this.validateDescription();
-      this.validatePrice();
-      this.validateQuantity();
+  setup() {
+    const router = useRouter();
+    const product = ref({
+      name: '',
+      description: '',
+      price: 0,
+      quantity: 0
+    });
 
-      if (this.hasErrors) {
+    const errors = reactive({
+      name: null,
+      description: null,
+      price: null,
+      quantity: null
+    });
+
+    const serverError = ref('');
+
+    const validateName = () => {
+      errors.name = product.value.name.length > 0 ? null : 'Name is required.';
+    };
+
+    const validateDescription = () => {
+      errors.description = product.value.description.length > 0 ? null : 'Description is required.';
+    };
+
+    const validatePrice = () => {
+      errors.price = product.value.price > 0 ? null : 'Price must be greater than 0.';
+    };
+
+    const validateQuantity = () => {
+      errors.quantity = Number.isInteger(product.value.quantity) && product.value.quantity > 0 ? null : 'Quantity must be a natural number.';
+    };
+
+    const hasErrors = computed(() => {
+      return !!errors.name || !!errors.description || !!errors.price || !!errors.quantity;
+    });
+
+    const addProduct = async () => {
+      validateName();
+      validateDescription();
+      validatePrice();
+      validateQuantity();
+
+      if (hasErrors.value) {
         return;
       }
 
-      axios.post('https://localhost:7144/api/Products', this.product, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+      try {
+        await axios.post('https://localhost:7144/api/Products', product.value, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        router.push('/products');
+      } catch (error) {
+        console.log('Error response:', error.response);
+        if (error.response && error.response.status === 400) {
+          const errorData = error.response.data;
+          console.log('Error data:', errorData);
+          if (Array.isArray(errorData.errors)) {
+            errorData.errors.forEach(err => {
+              if (err.toLowerCase().includes('name')) {
+                errors.name = err;
+              } else if (err.toLowerCase().includes('description')) {
+                errors.description = err;
+              } else if (err.toLowerCase().includes('price')) {
+                errors.price = err;
+              } else if (err.toLowerCase().includes('quantity')) {
+                errors.quantity = err;
+              }
+            });
+          } else if (typeof errorData.errors === 'object') {
+            Object.keys(errorData.errors).forEach(key => {
+              if (key.toLowerCase() === 'name') {
+                errors.name = errorData.errors[key].join(', ');
+              } else if (key.toLowerCase() === 'description') {
+                errors.description = errorData.errors[key].join(', ');
+              } else if (key.toLowerCase() === 'price') {
+                errors.price = errorData.errors[key].join(', ');
+              } else if (key.toLowerCase() === 'quantity') {
+                errors.quantity = errorData.errors[key].join(', ');
+              }
+            });
+          } else if (errorData.message) {
+            serverError.value = errorData.message;
+          } else {
+            serverError.value = 'An error occurred during product addition.';
+          }
+        } else {
+          serverError.value = 'An error occurred during product addition.';
         }
-      })
-      .then(() => {
-        this.$router.push('/products');
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    }
+      }
+    };
+
+    return {
+      product,
+      errors,
+      serverError,
+      validateName,
+      validateDescription,
+      validatePrice,
+      validateQuantity,
+      hasErrors,
+      addProduct
+    };
   }
 };
 </script>
